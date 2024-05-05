@@ -3,7 +3,7 @@ import { Hero } from '../../models/hero';
 import { NgIf, UpperCasePipe, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-hero-detail',
