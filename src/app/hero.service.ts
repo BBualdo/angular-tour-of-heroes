@@ -26,9 +26,11 @@ export class HeroService {
   }
 
   getHero(id: number): Observable<Hero> {
-    const hero = HEROES.find((hero) => hero.id == id)!;
-    this.log(`HeroService: Fetched hero id=${id}`);
-    return of(hero);
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url).pipe(
+      tap((_) => this.log(`Fetched Hero id = ${id}`)),
+      catchError(this.handleError<Hero>('getHero'))
+    );
   }
 
   private log(message: string): void {
